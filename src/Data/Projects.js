@@ -10,7 +10,7 @@ const projects = [
       "A responsive portfolio website created to showcase my skills, projects, experience and contact details.",
     technologies: ["React.js", "JavaScript", "CSS3", "Vite"],
     image: portfolioImage,
-    liveLink: "",
+    liveLink: "https://affan-anwar.github.io/affan-dev-react-portfolio/",
     githubLink: "https://github.com/affan-anwar/affan-dev-react-portfolio",
   },
 
