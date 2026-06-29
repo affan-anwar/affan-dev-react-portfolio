@@ -1,6 +1,8 @@
 import profileImage from "../assets/images/profile.jpg";
 
 export default function Hero() {
+  const resumeUrl = `${import.meta.env.BASE_URL}resume/MDAFFANANWAR_Resume.pdf`;
+
   return (
     <div className="hero">
       <div className="hero-content">
@@ -22,8 +24,8 @@ export default function Hero() {
 
         <div className="hero-buttons">
           <a href="#projects" className="primary-button">View Projects</a>
-          <a href="/resume/MdAffanAnwar_Resume.pdf" target="_blank" className="secondary-button">View Resume</a>
-          <a href="/resume/MdAffanAnwar_Resume.pdf" download className="secondary-button">Download</a>
+          <a href={resumeUrl} target="_blank" className="secondary-button">View Resume</a>
+          <a href={resumeUrl} download className="secondary-button">Download</a>
         </div>
 
         <div className="social-links">
