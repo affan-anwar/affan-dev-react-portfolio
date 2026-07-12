@@ -12,25 +12,38 @@ export default function Contact() {
 
   function handleChange(event) {
     const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
+
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   }
 
   function handleSubmit(event) {
     event.preventDefault();
+
     setStatus("sending");
 
     fetch("https://formspree.io/f/xeebkyvg", {
       method: "POST",
+
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
+
       body: JSON.stringify(formData),
     })
       .then(function (response) {
         if (response.ok) {
           setStatus("success");
-          setFormData({ name: "", email: "", subject: "", message: "" });
+
+          setFormData({
+            name: "",
+            email: "",
+            subject: "",
+            message: "",
+          });
         } else {
           setStatus("error");
         }
@@ -49,8 +62,8 @@ export default function Contact() {
       </h2>
 
       <p className="contact-description">
-        I am looking for frontend developer opportunities and projects where I
-        can contribute and improve my skills.
+        I am open to Software Engineer, React.js Developer, Frontend Developer
+        and Full Stack development opportunities.
       </p>
 
       <div className="contact-container">
@@ -59,17 +72,46 @@ export default function Contact() {
 
           <div className="contact-item">
             <p>Email</p>
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mdaffananwar2025@gmail.com" target="_blank" rel="noreferrer">mdaffananwar2025@gmail.com</a>
+
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=mdaffananwar2025@gmail.com"
+              target="_blank"
+              rel="noreferrer"
+            >
+              mdaffananwar2025@gmail.com
+            </a>
+          </div>
+
+          <div className="contact-item">
+            <p>Phone</p>
+
+            <a href="tel:+918292864221">
+              +91 82928 64221
+            </a>
           </div>
 
           <div className="contact-item">
             <p>Location</p>
+
             <span>Bengaluru, Karnataka, India</span>
           </div>
 
           <div className="contact-social-links">
-            <a href="https://github.com/affan-anwar" target="_blank" rel="noreferrer">GitHub</a>
-            <a href="https://www.linkedin.com/in/mdaffananwar" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a
+              href="https://github.com/affan-anwar"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/mdaffananwar"
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn
+            </a>
           </div>
         </div>
 
@@ -77,6 +119,7 @@ export default function Contact() {
           <div className="form-row">
             <div className="form-group">
               <label htmlFor="name">Your Name</label>
+
               <input
                 type="text"
                 id="name"
@@ -90,6 +133,7 @@ export default function Contact() {
 
             <div className="form-group">
               <label htmlFor="email">Your Email</label>
+
               <input
                 type="email"
                 id="email"
@@ -104,6 +148,7 @@ export default function Contact() {
 
           <div className="form-group">
             <label htmlFor="subject">Subject</label>
+
             <input
               type="text"
               id="subject"
@@ -117,6 +162,7 @@ export default function Contact() {
 
           <div className="form-group">
             <label htmlFor="message">Message</label>
+
             <textarea
               id="message"
               name="message"
@@ -128,12 +174,37 @@ export default function Contact() {
             ></textarea>
           </div>
 
-          <button type="submit" className="send-button" disabled={status === "sending"}>
-            {status === "sending" ? "Sending..." : "Send Message"}
+          <button
+            type="submit"
+            className="send-button"
+            disabled={status === "sending"}
+          >
+            {status === "sending"
+              ? "Sending..."
+              : "Send Message"}
           </button>
 
-          {status === "success" && <p style={{ color: "#33d6c5", marginTop: "12px" }}>Message sent successfully!</p>}
-          {status === "error" && <p style={{ color: "#ff6b6b", marginTop: "12px" }}>Something went wrong. Try again.</p>}
+          {status === "success" && (
+            <p
+              style={{
+                color: "#33d6c5",
+                marginTop: "12px",
+              }}
+            >
+              Message sent successfully!
+            </p>
+          )}
+
+          {status === "error" && (
+            <p
+              style={{
+                color: "#ff6b6b",
+                marginTop: "12px",
+              }}
+            >
+              Something went wrong. Try again.
+            </p>
+          )}
         </form>
       </div>
     </div>
