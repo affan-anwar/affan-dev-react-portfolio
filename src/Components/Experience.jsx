@@ -93,7 +93,7 @@ export default function Experience() {
         </div>
 
         <div className="experience-card">
-          <div className="experience-year">Apr 2021 - Jun 2025</div>
+          <div className="experience-year">Aug 2021 - Jun 2025</div>
 
           <div className="experience-content">
             <h3>Bachelor of Engineering (B.E.)</h3>
