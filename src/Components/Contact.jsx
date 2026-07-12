@@ -19,38 +19,35 @@ export default function Contact() {
     });
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
-
     setStatus("sending");
 
-    fetch("https://formspree.io/f/xeebkyvg", {
-      method: "POST",
-
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-
-      body: JSON.stringify(formData),
-    })
-      .then(function (response) {
-        if (response.ok) {
-          setStatus("success");
-
-          setFormData({
-            name: "",
-            email: "",
-            subject: "",
-            message: "",
-          });
-        } else {
-          setStatus("error");
-        }
-      })
-      .catch(function () {
-        setStatus("error");
+    try {
+      const response = await fetch("https://formspree.io/f/xeebkyvg", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
       });
+
+      if (response.ok) {
+        setStatus("success");
+
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -73,34 +70,22 @@ export default function Contact() {
           <div className="contact-item">
             <p>Email</p>
 
-            <a
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=mdaffananwar2025@gmail.com"
-              target="_blank"
-              rel="noreferrer"
-            >
-              mdaffananwar2025@gmail.com
+            <a href="mailto:affananwar63@gmail.com">
+              affananwar63@gmail.com
             </a>
           </div>
 
           <div className="contact-item">
             <p>Phone</p>
 
-            <a href="tel:+918292864221">
-              +91 82928 64221
-            </a>
-          </div>
-
-          <div className="contact-item">
-            <p>Location</p>
-
-            <span>Bengaluru, Karnataka, India</span>
+            <a href="tel:+918292864221">+91 82928 64221</a>
           </div>
 
           <div className="contact-social-links">
             <a
               href="https://github.com/affan-anwar"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               GitHub
             </a>
@@ -108,7 +93,7 @@ export default function Contact() {
             <a
               href="https://www.linkedin.com/in/mdaffananwar"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               LinkedIn
             </a>
@@ -171,7 +156,7 @@ export default function Contact() {
               placeholder="Write your message"
               rows="6"
               required
-            ></textarea>
+            />
           </div>
 
           <button
@@ -179,29 +164,17 @@ export default function Contact() {
             className="send-button"
             disabled={status === "sending"}
           >
-            {status === "sending"
-              ? "Sending..."
-              : "Send Message"}
+            {status === "sending" ? "Sending..." : "Send Message"}
           </button>
 
           {status === "success" && (
-            <p
-              style={{
-                color: "#33d6c5",
-                marginTop: "12px",
-              }}
-            >
+            <p style={{ color: "#33d6c5", marginTop: "12px" }}>
               Message sent successfully!
             </p>
           )}
 
           {status === "error" && (
-            <p
-              style={{
-                color: "#ff6b6b",
-                marginTop: "12px",
-              }}
-            >
+            <p style={{ color: "#ff6b6b", marginTop: "12px" }}>
               Something went wrong. Try again.
             </p>
           )}

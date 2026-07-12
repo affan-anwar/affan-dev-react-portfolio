@@ -1,8 +1,7 @@
 import profileImage from "../assets/images/profile.jpg";
+import resumeFile from "../assets/resume/MDAFFANANWAR_Resume.pdf?url";
 
 export default function Hero() {
-  const resumeUrl = `${import.meta.env.BASE_URL}resume/MDAFFANANWAR_Resume.pdf`;
-
   return (
     <div className="hero">
       <div className="hero-content">
@@ -14,9 +13,7 @@ export default function Hero() {
           ANWAR
         </h1>
 
-        <h2>
-          Software Engineer | React.js Developer | Frontend Developer
-        </h2>
+        <h2>Software Engineer | React.js Developer | Frontend Developer</h2>
 
         <p className="hero-description">
           Software Engineer with 1+ year of hands-on experience building modern
@@ -30,16 +27,20 @@ export default function Hero() {
           </a>
 
           <a
-            href={resumeUrl}
+            href={resumeFile}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="secondary-button"
           >
             View Resume
           </a>
 
-          <a href={resumeUrl} download className="secondary-button">
-            Download
+          <a
+            href={resumeFile}
+            download="MDAFFANANWAR_Resume.pdf"
+            className="secondary-button"
+          >
+            Download Resume
           </a>
         </div>
 
@@ -47,7 +48,7 @@ export default function Hero() {
           <a
             href="https://github.com/affan-anwar"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             GitHub
           </a>
@@ -55,18 +56,12 @@ export default function Hero() {
           <a
             href="https://www.linkedin.com/in/mdaffananwar"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             LinkedIn
           </a>
 
-          <a
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=mdaffananwar2025@gmail.com"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Email
-          </a>
+          <a href="mailto:affananwar63@gmail.com">Email</a>
         </div>
       </div>
 
