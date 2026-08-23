@@ -61,7 +61,7 @@ export default function Hero() {
             LinkedIn
           </a>
 
-          <a href="mailto:affananwar63@gmail.com">Email</a>
+         <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mdaffananwar2025@gmail.com" target="_blank" rel="noopener noreferrer">Email</a>
         </div>
       </div>
 
